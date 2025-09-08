@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.hotel.grpc.room";
+option java_outer_classname = "RoomProto";
+
+package room;
+
+service RoomService {
+  rpc GetRoom (GetRoomRequest) returns (RoomResponse);
+  rpc GetAllRooms (GetAllRoomsRequest) returns (GetAllRoomsResponse);
+}
+
+message GetRoomRequest {
+  int64 id = 1;
+}
+
+message GetAllRoomsRequest {
+}
+
+message RoomResponse {
+  int64 id = 1;
+  string room_number = 2;
+  string room_type = 3;
+  double price_per_night = 4;
+  string status = 5;
+  int32 floor_number = 6;
+  int32 max_occupancy = 7;
+  string description = 8;
+  string created_at = 9;
+  string updated_at = 10;
+}
+
+message GetAllRoomsResponse {
+  repeated RoomResponse rooms = 1;
+}
+

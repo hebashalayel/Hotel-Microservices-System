@@ -1,0 +1,33 @@
+type Query {
+    rooms: [Room]
+    room(id: ID!): Room
+    bookings: [Booking]
+    booking(id: ID!): Booking
+}
+
+type Room {
+    id: ID!
+    roomNumber: String!
+    roomType: String!
+    pricePerNight: Float!
+    status: String!
+    floorNumber: Int
+    maxOccupancy: Int
+    description: String
+    createdAt: String
+    updatedAt: String
+}
+
+type Booking {
+    id: ID!
+    guestId: ID!
+    roomId: ID!
+    checkInDate: String!
+    checkOutDate: String!
+    totalAmount: Float!
+    status: String!
+    createdAt: String
+    updatedAt: String
+    room: Room
+}
+
